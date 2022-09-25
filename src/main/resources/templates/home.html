@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="plantilla/headfooter ::head">
+</head>
+<body>
+    <header th:replace="plantilla/headfooter ::header"></header>
+    <div class="container">
+        <h1 th:text="${titulo}"></h1>
+    </div>
+    <div class="container">
+        <table class="table">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col" >Id</th>
+                <th scope="col">Matricula</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Teléfono</th>
+                <th scope="col">Opciones</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="es:${estudiantes}">
+                <th scope="row" th:text="${es.idEstudiante}" ></th>
+                <th th:text="${es.matricula}"></th>
+                <td th:text="${es.nombre}"></td>
+                <td th:text="${es.apellido}"></td>
+                <td th:text="${es.telefono}"></td>
+
+                <td >
+                    <a class="btn btn-success btn-sm" th:href="@{/editar/} + ${es.matricula}"
+                       th:text="Editar" title="Editar registro"></a>
+                    <a class="btn btn-danger btn-sm" th:href="@{/eliminar/} + ${es.matricula}"
+                    th:text="Eliminar" title="Eliminar registro"
+                    onclick="return confirm('Esta seguro que desea eliminar el estudiante?');">
+                    </a>
+                </td>
+            </tr>
+
+            </tbody>
+        </table>
+
+    </div>
+
+
+
+  <footer th:replace="plantilla/headfooter ::footer">> </footer>
+
+</body>
+</html>

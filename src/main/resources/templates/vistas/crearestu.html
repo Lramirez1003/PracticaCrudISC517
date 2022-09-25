@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="plantilla/headfooter ::head">
+</head>
+<body>
+<header th:replace="plantilla/headfooter ::header"></header>
+<div class="container">
+    <h1 th:text="${titulo}"></h1>
+
+    <div class="card bg-light" >
+        <div class="card-header bg-dark text-white"></div>
+        <div class="card-body">
+    <form th:action="@{/guardar}"  th:object="${estudiante}" method="post" >
+
+        <div class="form-group row">
+            <label class="col-md-2" for="id">Id</label>
+            <input type="number" th:field="*{idEstudiante}" class="form-control form-control-sm col-md-6"
+                   id="id" name="id" min="1" step="1" value="1" required>
+        </div>
+
+        <div class="form-group row">
+            <input type="hidden" th:field="*{idEstudiante}">
+            <label class="col-md-2" for="Matricula">Matricula</label>
+            <input type="number" th:field="*{matricula}" class="form-control form-control-sm col-md-6"
+                   id="Matricula" placeholder="Matricula" required>
+
+        </div>
+
+        <div class="form-group row">
+
+            <label class="col-md-2" for="Nombre">Nombre</label>
+            <input type="text" th:field="*{nombre}" class="form-control form-control-sm col-md-6"
+                   id="Nombre" placeholder="Nombre" required>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-2" for="Apellido">Apellido</label>
+            <input type="text" th:field="*{apellido}" class="form-control form-control-sm col-md-6"
+                   id="Apellido" placeholder="Apellido" required>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-2" for="Teléfono">Teléfono</label>
+            <input type="text" th:field="*{telefono}" class="form-control form-control-sm col-md-6"
+                   id="Teléfono" placeholder="Teléfono" required>
+        </div>
+        <div class="card-footer bg-dark">
+            <input type="submit" class="btn btn-primary btn-sm " value="Guardar">
+        </div>
+
+    </form>
+        </div>
+    </div>
+
+
+</div>
+
+
+<footer th:replace="plantilla/headfooter ::footer">> </footer>
+
+</body>
+</html>
