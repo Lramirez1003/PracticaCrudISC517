@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 public class Estudiante {
 
     private int idEstudiante;
-    private String matricula;
+    private int matricula;
     private String nombre;
     private String apellido;
     private String telefono;

@@ -12,15 +12,6 @@ import java.util.stream.Collectors;
 public class EstudianteRepository {
     private List<Estudiante> estu = new ArrayList<Estudiante>();
 
-  /*  public void CrearEstudiante() {
-
-        estu = List.of(
-                new Estudiante(20181122, "Bugs", "Bunny", "809-123-3211"),
-                new Estudiante(20182211, "Raton", "Jerry", "809-321-1111"),
-                new Estudiante(20183333, "Gato", "Tom", "809-444-2222"),
-                new Estudiante(20184444, "Pantera", "Rosa", "809-111-5511")
-        );
-    }*/
 
     public List<Estudiante> getAllEstu() {
         return estu;
@@ -52,9 +43,8 @@ public class EstudianteRepository {
     }
 
 
-    public String borrar(int mat) {
+    public void borrar(int mat) {
         estu.removeIf(x -> x.getMatricula() == (mat));
-        return null;
     }
 
     public Estudiante actualizar(Estudiante E) {

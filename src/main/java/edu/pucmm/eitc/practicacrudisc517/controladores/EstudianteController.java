@@ -12,8 +12,11 @@ import java.util.List;
 @Controller
 public class EstudianteController {
 
-    @Autowired
-    private EstudianteService service;
+    private final EstudianteService service;
+
+    public EstudianteController(EstudianteService service) {
+        this.service = service;
+    }
 
     @GetMapping("/")
     public String listarEstudiantes(Model model){

@@ -2,15 +2,21 @@ package edu.pucmm.eitc.practicacrudisc517.services;
 
 import edu.pucmm.eitc.practicacrudisc517.encapsulaciones.Estudiante;
 import edu.pucmm.eitc.practicacrudisc517.repository.EstudianteRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 
 import java.util.List;
 
 @Service
 public class EstudianteService {
-    @Autowired
-    private EstudianteRepository repository;
+
+    private final EstudianteRepository repository;
+
+    public EstudianteService(EstudianteRepository repository) {
+        this.repository = repository;
+    }
 
 
     public Estudiante guardarEstudiante(Estudiante estudiante){
@@ -25,8 +31,8 @@ public class EstudianteService {
         return repository.findByMAT(mat);
     }
 
-    public String BorrarEstudiante(int mat){
-        return repository.borrar(mat);
+    public void BorrarEstudiante(int mat){
+        repository.borrar(mat);
     }
 
     public Estudiante ActualizarEstudiante(Estudiante estudiante){
